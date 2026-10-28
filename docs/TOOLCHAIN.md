@@ -12,8 +12,8 @@ before installation. The Docker runner installs this version during image build.
 Azure CLI, Azure account authentication, and a subscription are not required for
 the intended local lint/build workflow. Python 3.12 with standard-library unittest
 is the test-suite reference; no third-party Python packages are required.
-The offline check script and CI setup are authored; see [Validation](VALIDATION.md).
-Local lint/build/tests passed in Docker on 2026-10-28; GitHub CI remains unverified.
+Local lint/build/tests passed in Docker on 2026-10-28 with this toolchain;
+see [Validation](VALIDATION.md).
 
 ## Lint policy
 
@@ -40,7 +40,7 @@ disable a rule to accommodate an unexpected diagnostic or compiler mismatch.
 
 ## Stable resource API choices
 
-These are explicit non-preview API versions for the future local modules, chosen
+These are explicit non-preview API versions for the local modules, chosen
 to keep the example's contracts fixed rather than follow a moving latest version.
 The linked Microsoft resource references document their resource-group scope and
 property contracts; they do not establish successful deployment in any region.
@@ -53,7 +53,7 @@ property contracts; they do not establish successful deployment in any region.
 
 These versions are used by the local modules composed from the entry point.
 Local compilation completed without diagnostics. Provider acceptance, policy,
-and regional availability remain unverified.
+and regional availability depend on the target Azure environment.
 
 ## Operator-controlled updates
 
@@ -67,6 +67,5 @@ configuration tests alone. Investigate diagnostics before accepting the update.
 To change a resource API, review its provider change log and property reference,
 update this table and the corresponding module declaration together, and adjust
 affected contract assertions for intentional changes. Keep non-preview versions
-unless a separately documented requirement justifies otherwise. Actual compilation
-and provider compatibility remain operator checks, not prerequisites for authoring
-the next task's parameter contracts.
+unless a separately documented requirement justifies otherwise. Run the full check script with the selected toolchain before accepting the
+change. Deployment compatibility depends on the target Azure environment.

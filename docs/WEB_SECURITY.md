@@ -36,8 +36,8 @@ are treated as verified values by the static assertions.
 Nothing has been deployed. These settings describe template intent and do not
 establish production readiness, effective policy, provider acceptance, or runtime
 security. The associated plan is cost-bearing if deployed. Tests in
-`tests/test_web_security_contract.py` inspect the future nested resource in fresh
+`tests/test_web_security_contract.py` inspect the nested resource in fresh
 `build/main.json` after composition. They require literal values for fixed security
 controls, check plan-reference/output wiring structurally, and fail explicitly
-when the artifact or Web App is missing. No compilation, tests, or live checks have
-been run.
+when the artifact or Web App is missing. Compilation and these contract tests
+passed in Docker on 2026-10-28.

@@ -57,7 +57,8 @@ and storage, fixed in their resource definitions. No private networking, RBAC,
 or application connection settings are included in composition.
 Compiled-template tests require
 a newly generated `build/main.json`; they do not evaluate ARM naming expressions
-or check global uniqueness. No compilation or tests have been run.
+or check global uniqueness. Compilation and parameter contract tests passed in
+Docker on 2026-10-28.
 
 ## Fictional dev example
 
@@ -72,14 +73,14 @@ These values produce `demodevsample01`, `demo-dev-plan-sample01`, and
 and Web App names must be globally unique; the example suffix does not establish
 uniqueness or reserve names. Choose an appropriate lowercase alphanumeric suffix
 within the documented bounds before any separately authorized deployment.
-Region and Linux Basic SKU availability, quota, and provider acceptance in
-`eastus` are unverified; the region is illustrative rather than a placement
-recommendation. B1 is the lowest Basic SKU allowed by this interface and remains
+The illustrative `eastus` region is not a placement recommendation. Select a
+region with suitable Linux Basic availability, quota, and provider support before
+deployment. B1 is the lowest Basic SKU allowed by this interface and remains
 cost-bearing if provisioned; no price or measured-cost claim is made.
 
-An example parameter file is not proof of deployment. No build-params command or
-parameter binding check has run. The operator must independently compile and
-inspect the effective parameters during final verification. Source assertions in
+Parameter compilation and binding checks passed in Docker on 2026-10-28.
+The compiled example contains the six documented parameters and fictional tags.
+An example parameter file is not proof of deployment. Source assertions in
 `tests/test_dev_params.py` cover the explicit parameter set, name syntax, and common
 identifier/secret patterns; they are not a comprehensive secret scanner or a
 substitute for compiler validation.

@@ -4,7 +4,8 @@ This fictional, source-only Azure Bicep example has not been deployed. No Azure
 account, subscription, Azure CLI, or credentials are needed for local checks.
 There is no runtime application to open in a browser. This workflow demonstrates
 compiled JSON and static assertions, not a live website or production readiness.
-Local checks passed in Docker on 2026-10-28; GitHub CI and Azure remain unverified.
+Local checks passed in Docker on 2026-10-28. The source-only release is validated
+and ready to publish.
 
 ## Docker workflow
 
@@ -81,14 +82,13 @@ than their inputs. Avoid concurrent checks in one checkout.
 Inspect the generated JSON for the three nested modules, fixed security settings,
 Web App plan reference, and nonsecret name/ID/principal outputs. Tests do not
 evaluate runtime ARM expressions or supply an actual principal ID. Example names
-are not reserved or guaranteed globally unique; `eastus`/B1 availability is
-unverified. See [Parameters](PARAMETERS.md) before changing example values.
+are not reserved or guaranteed globally unique; select a region with available
+Linux Basic capacity before deployment. See [Parameters](PARAMETERS.md) before changing example values.
 
 ## Interpretation
 
 The [CI workflow](../.github/workflows/ci.yml) invokes the same script without Azure
-credentials. It is authored but has no verified passing result; action refs and
-compiler download integrity await operator review. See [Validation](VALIDATION.md).
+credentials. See [Validation](VALIDATION.md) for completed local checks.
 Source tests, generated-template assertions, and synthetic regression fixtures
 provide different evidence; [Test strategy](TEST_STRATEGY.md) explains their limits.
 

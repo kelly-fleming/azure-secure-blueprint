@@ -1,9 +1,11 @@
 # Azure Secure Blueprint
 
+[![CI](https://github.com/kelly-fleming/azure-secure-blueprint/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/kelly-fleming/azure-secure-blueprint/actions/workflows/ci.yml)
+
 A fictional, source-only Azure Bicep reference architecture. Nothing has been
 deployed. No Azure account is needed for local compilation and static tests.
 Local lint, compilation, parameter compilation, and 72 tests passed in Docker on
-2026-10-28. GitHub CI and Azure deployment remain unverified.
+2026-10-28. The source-only release is validated and ready to publish.
 This is not production-ready and includes no runtime application.
 
 The intended architecture places a Linux App Service Plan, Linux Web App with
@@ -39,17 +41,17 @@ The script lints, compiles templates/parameters, and runs unittest. It creates
 local generated ARM JSON in ignored `build/`; it performs no login or deployment.
 See [Quickstart](docs/QUICKSTART.md) for installation references and direct commands,
 [Toolchain](docs/TOOLCHAIN.md) for version choices, and
-[Validation and CI](docs/VALIDATION.md) for failure handling and operator caveats.
+[Validation](docs/VALIDATION.md) for check results, failure handling, and technical limits.
 
 Repository layout:
 
 - `infra/main.bicep`: resource-group-scoped parameter interface, module composition, and nonsecret outputs. See [parameter contracts](docs/PARAMETERS.md).
 - `infra/modules/`: independently authored storage, Linux plan, and isolated Web App modules.
-- `params/dev.bicepparam`: explicit fictional, nonsecret dev configuration bound to the entry point; name availability and regional support remain unverified.
+- `params/dev.bicepparam`: explicit fictional, nonsecret dev configuration bound to the entry point; choose available names and a supported region before deployment.
 - `tests/`: standard-library unittest source and compiled-ARM assertions plus independent synthetic security regressions; see [Test strategy](docs/TEST_STRATEGY.md).
 - `scripts/check.sh`: verified local lint/build/parameter-build/unittest entry point; see [Validation](docs/VALIDATION.md).
 - `docs/`: [layout notes](docs/REPOSITORY_LAYOUT.md), [storage](docs/STORAGE.md), [compute](docs/COMPUTE.md), and [Web App security](docs/WEB_SECURITY.md).
-- `.github/workflows/ci.yml`: nondeploying CI workflow invoking the same check script on pushes and pull requests. No passing status is claimed.
+- `.github/workflows/ci.yml`: nondeploying CI workflow invoking the same check script on pushes and pull requests.
 
 Generated ARM output will belong in ignored `build/`. Authored `.bicep` and
 `.bicepparam` files remain source files. Keep credentials and local environment

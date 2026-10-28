@@ -34,9 +34,9 @@ An output expression is configuration, not proof that a resource has been deploy
 
 Nothing has been deployed. `infra/main.bicep` calls this module independently of
 the plan and Web App. The compiled contract tests in
-`tests/test_storage_contract.py` will inspect nested storage resources in a freshly
-generated `build/main.json` after composition exists. A missing artifact or absent
+`tests/test_storage_contract.py` inspect nested storage resources in a freshly
+generated `build/main.json` from the composed entry point. A missing artifact or absent
 storage resource fails explicitly. These tests reject expressions in fixed security
-properties rather than pretending to evaluate ARM expressions. No compilation,
-tests, or live access checks have been run. Template intent alone cannot establish
+properties rather than pretending to evaluate ARM expressions. Compilation and
+these contract tests passed in Docker on 2026-10-28. Template intent alone cannot establish
 runtime security or deployment compatibility. Storage is cost-bearing if deployed.

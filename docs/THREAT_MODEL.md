@@ -28,7 +28,7 @@ the template alone cannot police them.
 | Unauthorized app-to-storage access | No role assignments (RBAC) and no authorized app-to-storage connectivity are configured. | A managed identity alone grants no storage permissions. Authentication identity, network path, and authorization must all be designed before any future connection. |
 | Weak transport or administrative exposure | Templates require HTTPS/TLS 1.2, disable FTPS and remote debugging, and set SCM TLS 1.2. | No App Service deployment runtime or application exists to assess. These properties do not prove application authentication, authorization, or patching. |
 | Undetected drift or incidents | Static source and compiled-ARM assertions can detect the regressions they explicitly cover when executed. | No monitoring, alerting, audit-log integration, drift detection, or incident response automation is provisioned. No checks have been run. |
-| Build or dependency compromise | Local Bicep modules and restricted CI permissions reduce dependency/access scope. | Bicep binary integrity and action refs require operator review; major action tags are mutable. Successful CI would not independently establish tool trust. |
+| Build or dependency compromise | Local Bicep modules and restricted CI permissions reduce dependency/access scope. | Bicep binary integrity and action refs require operator review; major action tags are mutable. Passing static checks do not independently establish tool trust. |
 | Accidental spend or unsuitable placement | No deployment command exists in the supported check workflow. | Infrastructure would bill if deployed, even with no traffic. Region, quota, SKU availability, and pricing require independent operator review. |
 
 ## Explicit exclusions

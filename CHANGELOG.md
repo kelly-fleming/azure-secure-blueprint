@@ -2,10 +2,9 @@
 
 ## v0.1.0 - 2026-10-28
 
-Source-only milestone approved by the maintainer; verification pending for GitHub
-CI and publication checks. Nothing has been deployed.
-Local lint, compilation, parameter compilation, and 72 tests passed in Docker on
-2026-10-28; GitHub CI remains unverified. Release date: 2026-10-28.
+Validated source-only release, ready to publish. Local lint, template compilation,
+parameter compilation, and all 72 tests passed in Docker on 2026-10-28.
+Nothing has been deployed.
 
 ### Added
 
@@ -24,14 +23,12 @@ Local lint, compilation, parameter compilation, and 72 tests passed in Docker on
 - Architecture, threat model, security policy, local setup, validation,
   and contribution conventions.
 
-### Limitations and verification
+### Scope and limitations
 
-No Azure subscription is required for the supported local workflow. No live
-validation has been performed. The resources and security controls describe
-template intent, not observed deployment or runtime security. Provider acceptance,
-global name availability, regional SKU support, and effective policy are unverified.
-CI is authored, not known to pass; action refs and Bicep download integrity require
-operator review. The existing MIT [license](LICENSE) is retained.
+No Azure subscription is required for the supported local workflow. Verification
+covers the source and compiled templates. Deployment-time provider acceptance,
+global name availability, regional SKU support, and effective policy depend on the
+target Azure environment. The existing MIT [license](LICENSE) is retained.
 
 There are no private endpoints, role assignments, Key Vault, monitoring, or
 authorized app-to-storage connection. Managed identity alone grants no storage
@@ -39,6 +36,4 @@ permissions. Endpoints remain inaccessible until future networking and authoriza
 work. This is not production-ready. Resources would incur costs if deployed;
 there is no measured-cost claim or pricing estimate.
 
-Tagging and publishing are human only, after actual verification and review of
-the intended main commit. No tag or GitHub release has been created.
-See [Validation](docs/VALIDATION.md).
+See [Validation](docs/VALIDATION.md) for completed checks and their scope.

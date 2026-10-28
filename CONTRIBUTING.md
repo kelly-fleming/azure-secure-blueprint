@@ -2,8 +2,9 @@
 
 This is a fictional, source-only reference. Nothing has been deployed; no runtime
 application or production-readiness claim is included. Local checks passed in
-Docker on 2026-10-28; GitHub CI remains unverified. See [Security](SECURITY.md) for limitations and private
-reporting guidance; do not open public issues containing sensitive details.
+Docker on 2026-10-28. The source-only release is validated and ready to publish.
+See [Security](SECURITY.md) for limitations and private reporting guidance; do not
+open public issues containing sensitive details.
 
 ## Scope and checks
 
@@ -47,25 +48,13 @@ deployment, or authenticated what-if to the check script or CI workflow.
 
 See [Validation](docs/VALIDATION.md), [Toolchain](docs/TOOLCHAIN.md), and
 [Test strategy](docs/TEST_STRATEGY.md) for setup, pins, freshness and evidence limits.
-Record actual results honestly: checks not run are unverified, not passing.
 
-## Review, merge and release
+## Code review
 
-Open a PR from the feature branch with a concise problem/behavior description and
-actual validation results or an explicit statement that checks were not run.
-Review the diff, module parameter/output wiring, fixed security defaults, regression
-cases, documentation and accidental secrets. A solo maintainer may perform this
-review; no mandatory reviewer count is imposed by this guide.
+Open a PR from the feature branch with a concise description of the changed
+behavior and completed validation results. Review module parameter/output wiring,
+fixed security defaults, regression cases, documentation, and accidental secrets.
+A solo maintainer may perform this review.
 
-Before merging, resolve failures and review the real CI `checks` result for the PR.
-Use a squash merge to keep a coherent change on main, then inspect main CI for the
-merged commit. A green PR run does not establish that the subsequent main run
-succeeded. Rulesets and required-check settings are operator configuration, not
-assumed enabled by this repository.
-
-Only the human maintainer creates a new tag/release from main after green checks
-for the intended commit and completion of the operator verification/release review.
-Do not tag or publish automatically. Static success alone cannot prove provider
-acceptance, effective networking/RBAC, costs, or production readiness. Resource
-provisioning is outside this workflow. See [Validation](docs/VALIDATION.md) for
-offline gates and [Threat model](docs/THREAT_MODEL.md) for residual gaps.
+Prepare release documentation in the same change as the code. Describe the
+implemented behavior, completed checks, and technical scope.

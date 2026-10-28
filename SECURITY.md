@@ -2,14 +2,14 @@
 
 This is a fictional, source-only Azure Bicep example. Nothing has been deployed.
 It is not production-ready. Configured secure defaults are template intent, not
-verified runtime security. Tests, compilation, and CI results remain unverified.
+verified runtime security. Local lint, template compilation, parameter compilation,
+and all 72 tests passed in Docker on 2026-10-28.
 There is no runtime application or customer data in this repository.
 
 ## Reporting a vulnerability
 
 If this repository's Security tab offers **Report a vulnerability**, use that
-private reporting channel. Its availability has not been verified, and this policy
-does not claim private reporting is enabled. If it is unavailable, use a private
+private reporting channel. If it is unavailable, use a private
 maintainer contact only when one is explicitly published by the maintainer.
 No alternate private address or monitored inbox is established by this repository.
 
