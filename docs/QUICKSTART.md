@@ -95,6 +95,6 @@ provide different evidence; [Test strategy](TEST_STRATEGY.md) explains their lim
 Compilation alone cannot prove provider acceptance, name availability, costs,
 effective network isolation, or authorization. Public access is disabled and no
 private networking or app-to-storage RBAC exists. Managed identity grants no
-permissions by itself. Review [Architecture](ARCHITECTURE.md) and
-[Decisions](DECISIONS.md) for scope and tradeoffs. Resources are cost-bearing if
+permissions by itself. Review [Architecture](ARCHITECTURE.md) for scope and
+tradeoffs. Resources are cost-bearing if
 separately deployed; this guide includes no deployment path.

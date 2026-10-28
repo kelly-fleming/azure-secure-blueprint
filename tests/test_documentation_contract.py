@@ -17,12 +17,10 @@ class DocumentationContractTests(unittest.TestCase):
         self.assertIn("nothing has been deployed", architecture)
         self.assertIn("not production-ready", architecture)
         # Catch affirmative readiness claims even if a disclaimer is also present.
-        for path in ("docs/ARCHITECTURE.md", "docs/DECISIONS.md"):
-            with self.subTest(path=path):
-                self.assertNotRegex(
-                    normalized_document(path),
-                    r"\b(?:is|are)\s+(?:fully\s+)?production[- ]ready\b",
-                )
+        self.assertNotRegex(
+            architecture,
+            r"\b(?:is|are)\s+(?:fully\s+)?production[- ]ready\b",
+        )
 
     def test_networking_and_identity_limits_are_explicit(self):
         architecture = normalized_document("docs/ARCHITECTURE.md")
@@ -39,14 +37,6 @@ class DocumentationContractTests(unittest.TestCase):
         self.assertIn("targetscope = 'resourcegroup'", architecture)
         self.assertIn("web app --x--> storage data plane", architecture)
         self.assertIn("cost-bearing resources if deployed", architecture)
-
-    def test_local_module_decision_records_alternative_and_ownership(self):
-        decision = normalized_document("docs/DECISIONS.md")
-        self.assertIn("adr-001", decision)
-        self.assertIn("azure verified modules (avm)", decision)
-        self.assertIn("module restoration/cache requirements", decision)
-        self.assertIn("repository maintainer's responsibility", decision)
-
 
 if __name__ == "__main__":
     unittest.main()

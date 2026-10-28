@@ -117,8 +117,8 @@ No cloud deployment or authenticated validation is part of this checklist.
 - [ ] Inspect `build/dev.parameters.json` for only the six configuration fields
   and fictional nonsecret tags/values. Review name bounds, normalization collision
   risk, region/SKU assumptions and lack of global uniqueness evidence.
-- [ ] Review README/quickstart, architecture/ADRs, threat model, SECURITY.md,
-  contribution guide, LICENSE, changelog and draft release notes. Review reporting
+- [ ] Review README/quickstart, architecture, threat model, SECURITY.md,
+  contribution guide and LICENSE. Review reporting
   contact preferences and actual channel availability. Check links and setup in
   the clean checkout. No runtime assurance or measured-cost claim is supported.
 - [ ] Open a focused PR and verify the actual CI `checks` result for its exact
@@ -129,11 +129,10 @@ No cloud deployment or authenticated validation is part of this checklist.
   solo-maintainer review convention without imposing a reviewer count.
 - [ ] Squash merge through the reviewed PR, then verify CI for the resulting main
   commit. A passing PR run is not evidence of a passing main run.
-- [ ] Human maintainer only: after verification, date the changelog and revise
-  release notes to state actual results through the same PR/check workflow. Review
-  the draft-only documentation assertions when intentionally transitioning from
-  Unreleased status. Tag from the final verified main commit and publish only after
-  the release review; no automated tagging or publication is authorized here.
+- [ ] Human maintainer only: prepare any release notes after verification and
+  state actual results. Release notes are optional and are not required by CI.
+  Tag from the final verified main commit and publish only after the release
+  review; no automated tagging or publication is authorized here.
 
 ## Evidence and remaining assertions
 
@@ -147,7 +146,7 @@ claims that a failure has occurred:
 | Provider contract | Linux reserved/SKU/capacity, identity, public-network controls, TLS/SCM, Shared Key and default OAuth passed static assertions. No Azure deployment acceptance is claimed. |
 | Inspector and fixtures | Inspector, storage/Web mutation tests and security regressions passed, including named negative-control failures. The inspector does not evaluate runtime expressions or linked/symbolic templates. |
 | Composition and parameters | Fresh artifacts passed inventory, safe-output and dev configuration checks. Timestamp checks cannot prove provenance; rebuild through the script. |
-| Source and documentation | Layout, naming, script/CI source patterns, links, scope statements, editor conventions, license and Unreleased contracts passed their authored checks. Documentation patterns are not comprehensive claim or secret scanners. |
+| Source and documentation | Layout, naming, script/CI source patterns, links, scope statements, editor conventions and license passed their authored checks. Documentation patterns are not comprehensive claim or secret scanners. |
 | CI and trust | Action refs, binary integrity, runner behavior, complete test discovery, actual green status and ruleset enforcement require operator evidence. Major action tags are mutable. |
 
 No runtime properties, policy, effective permissions, name availability or actual

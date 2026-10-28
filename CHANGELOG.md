@@ -21,8 +21,8 @@ Local lint, compilation, parameter compilation, and 72 tests passed in Docker on
   helpers, independent negative security fixtures, and nondeploying CI workflow.
 - Docker check runner with pinned Bicep 0.37.4 and Python 3.12; offline execution
   and optional generated-artifact export.
-- Architecture decisions, threat model, security policy, local setup, validation,
-  contribution conventions, and draft release notes.
+- Architecture, threat model, security policy, local setup, validation,
+  and contribution conventions.
 
 ### Limitations and verification
 
@@ -41,5 +41,4 @@ there is no measured-cost claim or pricing estimate.
 
 Tagging and publishing are human only, after actual verification and review of
 the intended main commit. No tag or GitHub release has been created.
-See [release notes](docs/RELEASE_NOTES_v0.1.0.md) and
-[Validation](docs/VALIDATION.md).
+See [Validation](docs/VALIDATION.md).

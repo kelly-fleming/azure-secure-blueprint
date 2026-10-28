@@ -1,4 +1,4 @@
-# azure-secure-blueprint-dev
+# Azure Secure Blueprint
 
 A fictional, source-only Azure Bicep reference architecture. Nothing has been
 deployed. No Azure account is needed for local compilation and static tests.
@@ -9,8 +9,7 @@ This is not production-ready and includes no runtime application.
 The intended architecture places a Linux App Service Plan, Linux Web App with
 system-assigned managed identity, and independent StorageV2 account in one existing
 resource group. The entry point does not create the resource group. See
-[Architecture and boundaries](docs/ARCHITECTURE.md) and
-[ADR-001: local modules](docs/DECISIONS.md).
+[Architecture and boundaries](docs/ARCHITECTURE.md).
 
 Template defaults require HTTPS and TLS 1.2, disable Web App public access, FTPS,
 and remote debugging, and disable storage public access and Shared Key. Endpoints

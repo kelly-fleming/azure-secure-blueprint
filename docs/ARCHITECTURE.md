@@ -83,5 +83,3 @@ without application traffic. This repository does not provision resources or
 provide a measured cost estimate. Any future operator must review pricing and
 deployment suitability independently. Networking, application delivery, and
 authorization are later work and are not implicitly enabled by this design.
-
-See [ADR-001](DECISIONS.md) for the module dependency choice.

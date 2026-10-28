@@ -19,7 +19,7 @@ class ReadmeTests(unittest.TestCase):
 
     def test_required_docs_are_linked_and_local_targets_exist(self):
         readme = (ROOT / 'README.md').read_text(encoding='utf-8')
-        for target in ('docs/ARCHITECTURE.md', 'docs/DECISIONS.md', 'docs/QUICKSTART.md',
+        for target in ('docs/ARCHITECTURE.md', 'docs/QUICKSTART.md',
                        'docs/VALIDATION.md', 'docs/TOOLCHAIN.md', 'docs/PARAMETERS.md',
                        'docs/TEST_STRATEGY.md'):
             self.assertIn(f']({target})', readme)

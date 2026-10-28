@@ -67,5 +67,5 @@ Only the human maintainer creates a new tag/release from main after green checks
 for the intended commit and completion of the operator verification/release review.
 Do not tag or publish automatically. Static success alone cannot prove provider
 acceptance, effective networking/RBAC, costs, or production readiness. Resource
-provisioning is outside this workflow. See [ADR-002](docs/DECISIONS.md) for the
-choice of offline gates and [Threat model](docs/THREAT_MODEL.md) for residual gaps.
+provisioning is outside this workflow. See [Validation](docs/VALIDATION.md) for
+offline gates and [Threat model](docs/THREAT_MODEL.md) for residual gaps.
