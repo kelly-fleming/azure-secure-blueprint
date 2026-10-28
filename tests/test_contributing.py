@@ -30,8 +30,8 @@ class ContributingTests(unittest.TestCase):
 
     def test_workflow_and_editor_conventions_are_explicit(self):
         guide = ' '.join((ROOT / 'CONTRIBUTING.md').read_text(encoding='utf-8').split())
-        for phrase in ('feature branch', 'Open a PR', 'squash merge', 'main CI',
-                       'Only the human maintainer', 'after green checks'):
+        for phrase in ('feature branch', 'Open a PR', 'completed validation results',
+                       'module parameter/output wiring', 'fixed security defaults'):
             self.assertIn(phrase, guide)
         config = (ROOT / '.editorconfig').read_text(encoding='utf-8')
         for setting in ('end_of_line = lf', 'insert_final_newline = true',

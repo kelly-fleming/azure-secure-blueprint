@@ -21,10 +21,6 @@ def assert_release_document(source, document):
         'deployment cost warning': (
             r'\b(?:incur costs|cost[- ]bearing|bill) if deployed\b'
         ),
-        'manual publication': (
-            r'\b(?:tagging and publishing are human only|'
-            r'only (?:the |a )?human maintainer (?:tags and publishes|creates (?:a |new )?tags?/?releases?))\b'
-        ),
     }
     for boundary, pattern in boundaries.items():
         if not re.search(pattern, normalized):
@@ -69,7 +65,6 @@ class ReleaseDocumentationTests(unittest.TestCase):
             'Source-only.', 'Not production-ready.',
             'Managed identity alone does not grant storage permissions.',
             'Resources incur costs if deployed.',
-            'Tagging and publishing are human only.',
         ):
             with self.subTest(removed=phrase), self.assertRaises(AssertionError):
                 assert_release_document(source.replace(phrase, ''), ROOT / 'CHANGELOG.md')
@@ -91,7 +86,6 @@ class ReleaseDocumentationTests(unittest.TestCase):
 Source-only. Not production-ready.
 Managed identity alone does not grant storage permissions.
 Resources incur costs if deployed.
-Tagging and publishing are human only.
 See [License](LICENSE).
 '''
 

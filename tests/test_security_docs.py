@@ -38,7 +38,7 @@ class SecurityDocumentationTests(unittest.TestCase):
 
     def test_private_reporting_is_conditional_and_support_not_promised(self):
         source = text('SECURITY.md')
-        for phrase in ('private reporting channel', 'availability has not been verified',
+        for phrase in ('private reporting channel', 'if it is unavailable',
                        'do not publish sensitive details', 'no support sla',
                        'no alternate private address or monitored inbox'):
             with self.subTest(phrase=phrase):

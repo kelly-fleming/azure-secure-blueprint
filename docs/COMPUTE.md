@@ -30,5 +30,5 @@ and assertions for the resource type/API, Linux settings, Basic SKU parameter
 contract, explicit capacity, and ID/name-only outputs. It expects fresh
 `build/main.json` after composition and compilation; missing output or an absent
 plan fails explicitly. It checks known ARM expressions structurally without
-evaluating deployment parameters or claiming Azure acceptance. No compilation,
-tests, or other execution checks have been performed.
+evaluating deployment parameters or claiming Azure acceptance. Compilation and
+these contract tests passed in Docker on 2026-10-28.

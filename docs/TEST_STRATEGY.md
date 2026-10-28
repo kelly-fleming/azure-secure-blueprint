@@ -2,8 +2,8 @@
 
 The suite uses Python 3.12 standard-library unittest. Nothing has been deployed.
 Local lint, compilation, parameter compilation, and all 72 tests passed in Docker
-on 2026-10-28. This establishes static contracts, not runtime security or passing
-GitHub CI. See [Validation](VALIDATION.md) for the evidence and remaining limits.
+on 2026-10-28. This verifies the source and compiled-template contracts.
+See [Validation](VALIDATION.md) for completed checks and their technical scope.
 
 ## Separate evidence sources
 
@@ -39,8 +39,7 @@ not count as a successful negative case.
 | Remote debugging enabled | `assert_web_security` | `properties.siteConfig.remoteDebuggingEnabled` |
 | Key-returning output | Storage and composition output checks | named output or output inventory |
 
-Positive cases call all three validators so the fixture's own validity is checked
-when the operator executes the suite. Negative coverage does not establish full
+Positive cases passed all three validators, checking the fixture's own validity. Negative coverage does not establish full
 coverage of provider behavior, every secret encoding, or every possible regression.
 
 ## Expressions and runtime limitations
@@ -51,9 +50,8 @@ them. Security controls that should be fixed literals fail on unresolved express
 known plan and identifier wiring is checked structurally. Identity principal IDs
 are unavailable until deployment and are not treated as runtime evidence.
 
-Even passing static checks would not prove Azure accepted deployment, effective
+The passing static checks do not prove Azure accepted deployment, effective
 policy/RBAC, actual network isolation, name uniqueness, SKU availability, pricing,
 or production readiness. The reference has no application workload, private
-networking, or authorized app-to-storage data path. Operator execution and review
-remain separate from implementation completion; no coverage or benchmark result
-is claimed here.
+networking, or authorized app-to-storage data path. The suite reports contract
+results rather than runtime coverage or performance benchmarks.
