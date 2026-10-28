@@ -1,0 +1,25 @@
+# Personal operator notes, plans, and automation (kept locally)
+/AGENTS.md
+
+# Generated templates and local tool caches
+/build/
+.bicep/
+__pycache__/
+*.py[cod]
+.venv/
+
+# Local configuration, credentials, and infrastructure state
+.env
+.env.*
+!.env.example
+credentials
+credentials.*
+*.tfstate
+*.tfstate.*
+*.pem
+*.pfx
+.azure/
+.Azure/
+azureProfile.json
+accessTokens.json
+msal_token_cache.*

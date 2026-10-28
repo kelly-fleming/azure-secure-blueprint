@@ -1,0 +1,34 @@
+{
+  "resources": [
+    {
+      "type": "Example.Direct/widgets",
+      "name": "direct-example",
+      "properties": {"enabled": true, "MixedCase": "retained"}
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "name": "outer-example",
+      "properties": {
+        "template": {
+          "resources": [
+            {
+              "type": "Microsoft.Resources/deployments",
+              "name": "inner-example",
+              "properties": {
+                "template": {
+                  "resources": [
+                    {
+                      "type": "Example.Nested/widgets",
+                      "name": "nested-example",
+                      "properties": {"enabled": false, "runtimeId": "[reference('example').id]"}
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

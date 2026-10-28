@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      # Published major tags; operator must review refs/integrity before release.
+      - name: Check out source
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install standalone Bicep CLI v0.37.4
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          bicep_bin_dir="$RUNNER_TEMP/bicep-bin"
+          mkdir -p -- "$bicep_bin_dir"
+          curl --fail --silent --show-error --location --retry 3 \
+            --output "$bicep_bin_dir/bicep" \
+            https://github.com/Azure/bicep/releases/download/v0.37.4/bicep-linux-x64
+          chmod +x "$bicep_bin_dir/bicep"
+          echo "$bicep_bin_dir" >> "$GITHUB_PATH"
+
+      - name: Run offline checks
+        shell: bash
+        run: bash scripts/check.sh
